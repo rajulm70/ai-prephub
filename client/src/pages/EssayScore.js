@@ -73,7 +73,7 @@ function Score() {
       <div>
         {loading ? (
           <div>
-            <Spinner size={65} color="black" />
+            <Spinner />
           </div>
         ) : (
           <div className="score-container">

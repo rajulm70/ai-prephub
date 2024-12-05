@@ -33,7 +33,7 @@ const HomePage = () => {
     <Layout title={'AI-Mocker Dashboard'}>
       {loading ? (
         <div className="spinner-container">
-          <Spinner size={65} color="black" />
+          <Spinner />
         </div>
       ) : (
         <>

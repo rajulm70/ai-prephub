@@ -65,7 +65,7 @@ const Quizz = () => {
         }
     };
 
-      if (isLoading) return <Spinner size={65} color="black" />;
+      if (isLoading) return <Spinner />;
 
     return (
         <Layout title={'QuizDashboard'}>

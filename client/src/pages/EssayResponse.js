@@ -57,7 +57,7 @@ function Response() {
     if (isLoading) {
         return (
             <div className="container">
-                <Spinner  size={65} color="black"/>
+                <Spinner />
             </div>
         );
     }
