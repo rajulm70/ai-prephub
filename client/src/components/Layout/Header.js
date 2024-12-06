@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 
 const Header = () => {
     const [auth, setAuth] = useAuth();
-    const navigate = useNavigate(); // useNavigate hook for manual navigation
+    const navigate = useNavigate();
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // State to track menu visibility
 
     const handleLogout = (e) => {
-        e.preventDefault(); // Prevent default navigation
+        e.preventDefault();
         if (window.confirm("Are you sure you want to logout?")) {
             setAuth({
                 ...auth,
@@ -17,14 +18,16 @@ const Header = () => {
             });
             localStorage.removeItem("auth");
             toast.success("Logout Successfully");
-            navigate("/login"); // Only navigate after successful logout
+            navigate("/login");
         }
-        // If the user clicks "Cancel," do nothing, and they stay on the same page
+    };
+
+    const handleMenuToggle = () => {
+        setIsMenuOpen(!isMenuOpen); // Toggle menu visibility
     };
 
     return (
         <>
-            {/* Internal CSS for the Header */}
             <style>
                 {`
                     .sticky-header {
@@ -32,23 +35,54 @@ const Header = () => {
                         top: 0;
                         z-index: 1000;
                         width: 100%;
-                        box-shadow: 0 3px 18px -1px gray; /* Optional: adds shadow for better visibility */
+                        box-shadow: 0 3px 18px -1px gray;
                     }
 
                     .navbar {
                         background: linear-gradient(45deg, #ae63b3, #b2f78f);
-                        // font-weight: 600 !important;
                     }
 
+                    /* Remove background color for the logo */
                     .navbar-brand {
-                        color: black;
-                        font-weight: 600 ;
+                        color: black ;
+                        font-weight: 600;
                         display: flex;
                         align-items: center;
+                        background-color: transparent !important; /* Make the background transparent */
                     }
 
-                    .navbar-toggler-icon {
-                        background-color: white;
+                    /* Modern Hamburger Icon */
+                    .navbar-toggler {
+                        border: none ;
+                        background: transparent !important;
+                        outline: none;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        align-items: center;
+                        width: 30px;
+                        height: 25px;
+                        padding: 0;
+                    }
+
+                    .navbar-toggler .bar {
+                        width: 30px;
+                        height: 4px;
+                        background-color: black;
+                        border-radius: 5px;
+                        transition: all 0.3s ease;
+                    }
+
+                    .navbar-toggler.open .bar:nth-child(1) {
+                        transform: rotate(45deg) translate(5px, 5px);
+                    }
+
+                    .navbar-toggler.open .bar:nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    .navbar-toggler.open .bar:nth-child(3) {
+                        transform: rotate(-45deg) translate(5px, -5px);
                     }
 
                     .nav-link {
@@ -70,11 +104,29 @@ const Header = () => {
                     .icon-user {
                         margin-right: 5px;
                     }
-                        /* Change text color of the menu items to black */
+
                     .navbar-nav .nav-link {
                         color: black !important;
                     }
-        }
+
+                    /* Custom CSS to remove the active link styling */
+                    .disable-active.active {
+                        text-decoration: none; /* Remove underline */
+                        border: none; /* Remove any borders */
+                    }
+
+                    /* Mobile specific CSS for better navigation */
+                    @media (max-width: 768px) {
+
+                        .nav-item {
+                            margin-bottom: 10px;
+                        }
+
+                        .navbar-nav .nav-link {
+                            color: black !important;
+                            text-align: center;
+                        }
+                    }
                 `}
             </style>
 
@@ -88,10 +140,22 @@ const Header = () => {
                         />
                         AI-Mocker
                     </Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon" />
+                    <button
+                        className={`navbar-toggler ${isMenuOpen ? 'open' : ''}`}
+                        type="button"
+                        onClick={handleMenuToggle} // Toggle the menu when clicked
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded={isMenuOpen ? "true" : "false"}
+                        aria-label="Toggle navigation"
+                    >
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div
+                        className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} // Apply "show" class based on menu state
+                        id="navbarSupportedContent"
+                    >
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <NavLink to="/" className="nav-link" aria-current="page">Home</NavLink>
@@ -115,20 +179,20 @@ const Header = () => {
                             ) : (
                                 <>
                                     <li className="nav-item dropdown">
-                                        <navlink className="nav-link dropdown-toggle"
+                                        <NavLink className="nav-link dropdown-toggle disable-active"
                                             href="#"
                                             id="navbarDropdown"
                                             role="button"
                                             data-toggle="dropdown"
                                             aria-haspopup="true"
-                                            aria-expanded="false">
+                                            aria-expanded="false"
+                                            isActive={() => false}>
                                             <i className="fa-solid fa-user-tie icon-user"></i>
                                             {auth?.user?.name}
-                                        </navlink>
+                                        </NavLink>
                                         <div className="dropdown-menu dropdownStyle" aria-labelledby="navbarDropdown">
                                             <li>
-                                                <NavLink to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"
-                                                    }`} className="dropdown-item dropdownStyle1">Dashboard</NavLink>
+                                                <NavLink to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`} className="dropdown-item dropdownStyle1">Dashboard</NavLink>
                                             </li>
                                             <li>
                                                 <NavLink
@@ -139,12 +203,10 @@ const Header = () => {
                                                     Logout
                                                 </NavLink>
                                             </li>
-
                                         </div>
                                     </li>
                                 </>
                             )}
-
                         </ul>
                     </div>
                 </div>
