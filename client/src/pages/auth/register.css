@@ -87,5 +87,13 @@
     opacity:0.9;
     text-decoration:none;
   }
-  
+   .btn-loading {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.btn-loading:hover {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
   
