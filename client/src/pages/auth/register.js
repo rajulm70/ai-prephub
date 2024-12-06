@@ -1,22 +1,23 @@
-import React, { useState } from 'react'
-import Layout from '../../components/Layout/Layout'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import Layout from '../../components/Layout/Layout';
+import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import axios from 'axios'
-import './register.css'
+import axios from 'axios';
+import './register.css';
 
 const Register = () => {
-
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
     const [answer, setAnswer] = useState("");
+    const [isLoading, setIsLoading] = useState(false); // State for button loading
     const navigate = useNavigate();
 
     const submitHandle = async (e) => {
         e.preventDefault();
+        setIsLoading(true); // Set loading state to true
         try {
             const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`, {
                 name,
@@ -24,10 +25,10 @@ const Register = () => {
                 password,
                 phone,
                 address,
-                answer
+                answer,
             });
             if (res && res.data.success) {
-                toast.success(res.data && res.data.message);
+                toast.success(res.data.message);
                 navigate("/login");
             } else {
                 toast.error(res.data.message);
@@ -35,8 +36,10 @@ const Register = () => {
         } catch (error) {
             console.log(error);
             toast.error("Something went wrong");
+        } finally {
+            setIsLoading(false); // Reset loading state
         }
-    }
+    };
 
     return (
         <Layout title={'Register - AI-Mocker'}>
@@ -81,7 +84,6 @@ const Register = () => {
                                 placeholder="Password"
                             />
                         </div>
-
                         <div className="form-group">
                             <input
                                 type="text"
@@ -121,16 +123,20 @@ const Register = () => {
                             </div>
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary btn-block">Register</button>
+                            <button
+                                type="submit"
+                                className={`btn btn-primary btn-block ${isLoading ? 'btn-loading' : ''}`}
+                                disabled={isLoading}
+                            >
+                                {isLoading ? 'Please wait...' : 'Register'}
+                            </button>
                         </div>
                         <Link to="/login" className="already">You already have an account? Login here.</Link>
                     </form>
                 </div>
             </div>
-
-
         </Layout>
-    )
-}
+    );
+};
 
-export default Register
+export default Register;
