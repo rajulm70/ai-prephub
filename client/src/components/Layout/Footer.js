@@ -30,7 +30,7 @@ const Footer = () => {
                         data-mdb-ripple-init
                         className="btn text-white btn-floating m-1"
                         style={{ backgroundColor: '#c23321' }}
-                        href="#!"
+                        href="https://www.google.com/"
                         role="button"
                     >
                         <i className="fab fa-google"></i>
@@ -50,7 +50,7 @@ const Footer = () => {
                         data-mdb-ripple-init
                         className="btn text-white btn-floating m-1"
                         style={{ backgroundColor: '#006192' }}
-                        href="#!"
+                        href="https://www.linkedin.com/in/rajul-mishra-35469b257"
                         role="button"
                     >
                         <i className="fab fa-linkedin-in"></i>
@@ -60,7 +60,7 @@ const Footer = () => {
                         data-mdb-ripple-init
                         className="btn text-white btn-floating m-1"
                         style={{ backgroundColor: '#1a1a1a' }}
-                        href="#!"
+                        href="https://github.com/rajulm70"
                         role="button"
                     >
                         <i className="fab fa-github"></i>
