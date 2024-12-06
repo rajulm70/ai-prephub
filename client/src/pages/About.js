@@ -50,6 +50,67 @@ const About = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Meet the Team */}
+            <section className="team-section py-3 py-md-5 py-xl-8">
+                <div className="container">
+                    <div className="row justify-content-md-center">
+                        <div className="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                            <h2 className="mb-4 display-5 text-center">Meet the Team</h2>
+                            <p className="text-secondary mb-5 text-center lead fs-4">Our team is composed of passionate individuals dedicated to empowering others through AI-driven solutions.</p>
+                        </div>
+                    </div>
+                    <div className="row gy-4 gy-lg-0">
+                        {/* Team Member 1 */}
+                        <div className="col-12 col-lg-3">
+                            <div className="card border-0 text-center">
+                                <div className="card-body p-4">
+                                    <h5 className="card-title">Rajul Mishra</h5>
+                                    <p className="card-text text-secondary mb-3">Full Stack Developer</p>
+                                    <a href="https://github.com/rajulm70" className="btn btn-outline-success" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                    <a href="https://www.linkedin.com/in/rajul-mishra-35469b257" className="btn btn-outline-success ms-2" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Team Member 2 */}
+                        <div className="col-12 col-lg-3">
+                            <div className="card border-0 text-center">
+                                <div className="card-body p-4">
+                                    <h5 className="card-title">Vansh Kumar</h5>
+                                    <p className="card-text text-secondary mb-3">Full Stack Developer</p>
+                                    <a href="https://github.com/johndoe" className="btn btn-outline-success" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                    <a href="https://www.linkedin.com/in/johndoe/" className="btn btn-outline-success ms-2" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Team Member 3 */}
+                        <div className="col-12 col-lg-3">
+                            <div className="card border-0 text-center">
+                                <div className="card-body p-4">
+                                    <h5 className="card-title">Rishabh Pandey</h5>
+                                    <p className="card-text text-secondary mb-3">Frontend Developer</p>
+                                    <a href="https://github.com/janesmith" className="btn btn-outline-success" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                    <a href="https://www.linkedin.com/in/janesmith/" className="btn btn-outline-success ms-2" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Team Member 4 */}
+                        <div className="col-12 col-lg-3">
+                            <div className="card border-0 text-center">
+                                <div className="card-body p-4">
+                                    <h5 className="card-title">Yogendra Sisodiya</h5>
+                                    <p className="card-text text-secondary mb-3">Frontend Developer</p>
+                                    <a href="https://github.com/alexlee" className="btn btn-outline-success" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                    <a href="https://www.linkedin.com/in/alexlee/" className="btn btn-outline-success ms-2" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </Layout>
     )
 }
