@@ -108,3 +108,12 @@
     width: 100px;
     height: auto;
 }
+
+.btn-loading {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.btn-loading:hover {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
