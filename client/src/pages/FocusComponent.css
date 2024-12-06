@@ -169,11 +169,14 @@
       white-space: normal; /* Allow text to wrap */
       word-break: break-word; /* Ensure words break properly */
   }
-
+ .focus-subtitle{
+    font-size: 1.2rem;
+  }
   .typing-effect {
       white-space: normal; /* Allow wrapping for mobile */
       display: block; /* Stack content vertically */
       animation: none; /* Disable typing effect in mobile view */
+      border-right: none;
   }
 
   .highlight {
