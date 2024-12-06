@@ -4,25 +4,26 @@ import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import './login.css';
-import backgroundImage from './forgot-img-1.avif'; 
+import backgroundImage from './forgot-img-1.avif';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [answer, setAnswer] = useState("");
+    const [isLoading, setIsLoading] = useState(false); // State for button loading
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true); // Set loading state to true
         try {
-            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/forgot-password`, {
+            const res = await axios.post("/api/v1/auth/forgot-password", {
                 email,
                 newPassword,
                 answer,
             });
             if (res && res.data.success) {
-                toast.success(res.data && res.data.message);
-
+                toast.success(res.data.message);
                 navigate("/login");
             } else {
                 toast.error(res.data.message);
@@ -30,6 +31,8 @@ const ForgotPassword = () => {
         } catch (error) {
             console.log(error);
             toast.error("Something went wrong");
+        } finally {
+            setIsLoading(false); // Reset loading state
         }
     };
 
@@ -37,7 +40,7 @@ const ForgotPassword = () => {
         <Layout title={'Forgot Password - AI-Mocker'}>
             <div className="login-photo">
                 <div className="form-container">
-                    <div className="image-holder" style={{backgroundImage: `url(${backgroundImage})`}}></div>
+                    <div className="image-holder" style={{ backgroundImage: `url(${backgroundImage})` }}></div>
                     <form onSubmit={handleSubmit}>
                         <div className="image-center">
                             <img
@@ -53,8 +56,7 @@ const ForgotPassword = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                placeholder="Email" 
-                                
+                                placeholder="Email"
                             />
                         </div>
                         <div className="form-group">
@@ -77,10 +79,14 @@ const ForgotPassword = () => {
                                 placeholder="New Password"
                             />
                         </div>
-
-                        
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary btn-block">Reset Password</button>
+                            <button
+                                type="submit"
+                                className={`btn btn-primary btn-block ${isLoading ? 'btn-loading' : ''}`}
+                                disabled={isLoading}
+                            >
+                                {isLoading ? 'Please wait...' : 'Reset Password'}
+                            </button>
                         </div>
                         <Link to="/register" className="already">Don't have an account? Sign up here.</Link>
                     </form>
