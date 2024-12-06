@@ -9,19 +9,21 @@ import { useAuth } from "../../context/auth";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoginLoading, setIsLoginLoading] = useState(false); // State for Log In button
+    const [isForgotLoading, setIsForgotLoading] = useState(false); // State for Forgot Password button
     const navigate = useNavigate();
     const location = useLocation();
     const [auth, setAuth] = useAuth();
 
     const submitHandle = async (e) => {
         e.preventDefault();
+        setIsLoginLoading(true); // Set loading state for Log In button
         try {
             const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/login`, {
                 email,
                 password,
             });
             if (res && res.data.success) {
-
                 setAuth({
                     ...auth,
                     user: res.data.user,
@@ -36,7 +38,15 @@ const Login = () => {
         } catch (error) {
             console.log(error);
             toast.error("Something went wrong");
+        } finally {
+            setIsLoginLoading(false); // Reset loading state for Log In button
         }
+    };
+
+    const handleForgotPassword = () => {
+        setIsForgotLoading(true); // Set loading state for Forgot Password button
+        navigate('/forgot-password');
+        setTimeout(() => setIsForgotLoading(false), 1000); // Simulate network delay
     };
 
     return (
@@ -73,12 +83,25 @@ const Login = () => {
                             />
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary btn-block">Log In</button>
+                            <button
+                                type="submit"
+                                className={`btn btn-primary btn-block ${isLoginLoading ? 'btn-loading' : ''}`}
+                                disabled={isLoginLoading}
+                            >
+                                {isLoginLoading ? 'Please wait...' : 'Log In'}
+                            </button>
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary btn-block forgot-btn" onClick={() => { navigate('/forgot-password') }} >Forgot Password</button>
+                            <button
+                                type="button"
+                                className={`btn btn-primary btn-block forgot-btn ${isForgotLoading ? 'btn-loading' : ''}`}
+                                onClick={handleForgotPassword}
+                                disabled={isForgotLoading}
+                            >
+                                {isForgotLoading ? 'Please wait...' : 'Forgot Password'}
+                            </button>
                         </div>
-                        <Link to="/register" className="already">Don't have an account Register here.</Link>
+                        <Link to="/register" className="already">Don't have an account? Register here.</Link>
                     </form>
                 </div>
             </div>
