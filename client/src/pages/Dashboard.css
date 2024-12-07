@@ -1,7 +1,7 @@
 /* Dashboard Container Styling */
 .dashboard-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap; /* Allows wrapping of elements when space is insufficient */
     padding: 90px;
     border-radius: 10px; /* Optional: gives a rounded edge effect */
