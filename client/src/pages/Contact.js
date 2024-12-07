@@ -20,7 +20,7 @@ const Contact = () => {
                   <div className="d-flex align-items-center mb-3">
                     <div>
                       <i className="fa-solid fa-envelope-circle-check"></i>
-                      <a href="mailto:support@aimocker.com" className="fs-5 text-dark m-2 contactus">rajulm70@gmail.com</a>
+                      <a href="mailto:rajulm70@gmail.com" className="fs-5 text-dark m-2 contactus">rajulm70@gmail.com</a>
                       <i className="fa-solid fa-hand-point-left"></i>
                     </div>
                   </div>
