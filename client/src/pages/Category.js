@@ -15,9 +15,9 @@ const Category = () => {
   return (
     <Layout title={'AI-Mocker Dashboard'}>
       <div ref={dashboardRef} className="dashboard-container">
-        <MockInt />
-        <MockEssay />
         <MockQuizzy />
+        <MockEssay />
+        <MockInt />
       </div>
     </Layout>
   );
