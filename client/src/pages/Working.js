@@ -27,21 +27,21 @@ export default function Working() {
                         </div>
                         <div className="col-md-6 d-flex align-items-center">
                             <div className="list-group" style={{ marginLeft: '0px' }}>
-                                <div className="list-group-item shadow-sm" style={{ backgroundColor: '#DF73EB', color: 'black' }}>
+                                <div className="list-group-item shadow-sm" style={{ backgroundColor: '#AE7AAD', color: 'black' }}>
                                     <div className="d-flex w-100 justify-content-between">
                                         <h5 className="mb-1">Interactive Mock Interviews</h5>
                                     </div>
                                     <p className="mb-1">AI-PrepHub provides personalized mock interviews using generative AI.</p>
                                     <small>Enhance your interview skills.</small>
                                 </div>
-                                <div className="list-group-item shadow-sm" style={{ backgroundColor: '#E5FFCC', color: 'black' }}>
+                                <div className="list-group-item shadow-sm" style={{ backgroundColor: '#B1B99F', color: 'black' }}>
                                     <div className="d-flex w-100 justify-content-between">
                                         <h5 className="mb-1">Real-time Feedback</h5>
                                     </div>
                                     <p className="mb-1">Receive instant feedback to improve your responses.</p>
                                     <small className="text-body-secondary">Get insights on your performance.</small>
                                 </div>
-                                <div className="list-group-item shadow-sm" style={{ backgroundColor: '#5BFF66', color: 'black' }}>
+                                <div className="list-group-item shadow-sm" style={{ backgroundColor: '#B2F48F', color: 'black' }}>
                                     <div className="d-flex w-100 justify-content-between">
                                         <h5 className="mb-1">Customizable Scenarios</h5>
                                     </div>
