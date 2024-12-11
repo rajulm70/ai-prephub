@@ -3,8 +3,8 @@ import Layout from "./../components/Layout/Layout";
 
 const Contact = () => {
   return (
-    <Layout title={'Contact Us - AI-Mocker'}>
-      {/* Contact Us - AI-Mocker */}
+    <Layout title={'Contact Us - AI-PrepHub'}>
+      {/* Contact Us - AI-PrepHub */}
       <section className="py-3 py-md-5">
         <div className="container">
           <div className="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
@@ -14,8 +14,8 @@ const Contact = () => {
             <div className="col-12 col-lg-6">
               <div className="row justify-content-xl-center">
                 <div className="col-12 col-xl-10">
-                  <h2 className="mb-3">Reach Out to AI-Mocker</h2>
-                  <p className="lead fs-4 mb-3 mb-xl-5">Have questions or need assistance with our AI-powered tools? Our team is here to help you make the most of AI-Mocker. Feel free to get in touch with us for any inquiries or support!</p>
+                  <h2 className="mb-3">Reach Out to AI-PrepHub</h2>
+                  <p className="lead fs-4 mb-3 mb-xl-5">Have questions or need assistance with our AI-powered tools? Our team is here to help you make the most of AI-PrepHub. Feel free to get in touch with us for any inquiries or support!</p>
                   
                   <div className="d-flex align-items-center mb-3">
                     <div>
