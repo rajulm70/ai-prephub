@@ -25,7 +25,7 @@ const BriefDetails = () => {
     ];
 
     return (
-        <Layout title={'Learn More - AI-Mocker'}>
+        <Layout title={'Learn More - AI-PrepHub'}>
             <section className="brief-details-section">
                 <div className="container">
                     <h2 className="section-title text-center">Explore Our Features</h2>
