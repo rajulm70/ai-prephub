@@ -39,9 +39,9 @@ const HomePage = () => {
         <>
           <FocusComponent scrollToDashboard={scrollToDashboard} />
           <div ref={dashboardRef} className="dashboard-container">
-            <MockInt />
-            <MockEssay />
             <MockQuizzy />
+            <MockEssay />
+            <MockInt />
           </div>
           <Working />
         </>
