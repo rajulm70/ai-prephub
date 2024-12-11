@@ -3,14 +3,14 @@ import Layout from '../components/Layout/Layout'
 
 const Policy = () => {
   return (
-    <Layout title={'Privacy & Policy - AI-Mocker'}>
+    <Layout title={'Privacy & Policy - AI-PrepHub'}>
       {/* Privacy & Policy Section */}
       <section className="bsb-about-6 py-3 py-md-5 py-xl-8">
         <div className="container">
           <div className="row justify-content-md-center">
             <div className="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
               <h2 className="mb-4 display-5 text-center">Privacy & Policy</h2>
-              <p className="text-secondary mb-5 text-center lead fs-4">At AI-Mocker, we prioritize your privacy and security. Our policies are designed to ensure that your personal and sensitive data is handled responsibly while delivering the best user experience.</p>
+              <p className="text-secondary mb-5 text-center lead fs-4">At AI-PrepHub, we prioritize your privacy and security. Our policies are designed to ensure that your personal and sensitive data is handled responsibly while delivering the best user experience.</p>
               <hr className="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle" />
             </div>
           </div>
@@ -44,7 +44,7 @@ const Policy = () => {
                       </h2>
                       <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionAbout6">
                         <div className="accordion-body">
-                          We implement advanced encryption protocols to ensure that your interactions with AI-Mocker remain safe. Our systems are regularly updated to protect against potential threats.
+                          We implement advanced encryption protocols to ensure that your interactions with AI-PrepHub remain safe. Our systems are regularly updated to protect against potential threats.
                         </div>
                       </div>
                     </div>
@@ -56,7 +56,7 @@ const Policy = () => {
                       </h2>
                       <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionAbout6">
                         <div className="accordion-body">
-                          At AI-Mocker, we believe in being transparent about how we use your data. Our policies are readily accessible, and we encourage users to reach out with any questions or concerns.
+                          At AI-PrepHub, we believe in being transparent about how we use your data. Our policies are readily accessible, and we encourage users to reach out with any questions or concerns.
                         </div>
                       </div>
                     </div>
