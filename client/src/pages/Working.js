@@ -10,7 +10,7 @@ export default function Working() {
         }}>
             <div className="container" style={{ marginBottom: '100px'}}>
                 <h1 className="text-center mb-4" style={{ marginTop: '40px', marginBottom: '20px' }}>
-                    <b>How <b style={{color:'#894791 '}}>AI-MOCKER</b> Works</b>
+                    <b>How <b style={{color:'#894791 '}}>AI-PrepHub</b> Works</b>
                 </h1>
                 <div className="card mb-4 shadow" style={{ maxWidth: '900px', marginLeft: 'auto', marginRight: 'auto', boxShadow: '70px 22px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)' }}>
                     <div className="row g-0">
@@ -31,7 +31,7 @@ export default function Working() {
                                     <div className="d-flex w-100 justify-content-between">
                                         <h5 className="mb-1">Interactive Mock Interviews</h5>
                                     </div>
-                                    <p className="mb-1">AI-Mocker provides personalized mock interviews using generative AI.</p>
+                                    <p className="mb-1">AI-PrepHub provides personalized mock interviews using generative AI.</p>
                                     <small>Enhance your interview skills.</small>
                                 </div>
                                 <div className="list-group-item shadow-sm" style={{ backgroundColor: '#E5FFCC', color: 'black' }}>
