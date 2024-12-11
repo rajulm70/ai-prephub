@@ -12,7 +12,7 @@ const FocusComponent = ({ scrollToDashboard }) => {
     <div className="focus-section">
       <div className="focus-content">
         <h1 className="focus-title">
-          <span className="typing-effect">Welcome to the <span className="highlight">AI-MOCKER !</span></span>
+          <span className="typing-effect">Welcome to the <span className="highlight">AI-PREPHUB !</span></span>
         </h1>
         <p className="focus-subtitle">Revolutionizing the Way We Prepare for Careers!</p>
         <button className="cta-button" onClick={scrollToDashboard}>Get Started</button>
