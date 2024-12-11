@@ -30,7 +30,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <Layout title={'AI-Mocker Dashboard'}>
+    <Layout title={'AI-PrepHub'}>
       {loading ? (
         <div className="spinner-container">
           <Spinner />
