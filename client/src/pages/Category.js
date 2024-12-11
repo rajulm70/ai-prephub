@@ -13,7 +13,7 @@ const Category = () => {
   const dashboardRef = useRef(null);
 
   return (
-    <Layout title={'AI-Mocker Dashboard'}>
+    <Layout title={'Category'}>
       <div ref={dashboardRef} className="dashboard-container">
         <MockQuizzy />
         <MockEssay />
