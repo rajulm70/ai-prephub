@@ -138,7 +138,7 @@ const Header = () => {
                             alt="logo"
                             style={{ width: '30px', height: '30px', marginRight: '8px' }}
                         />
-                        AI-Mocker
+                        AI-PrepHub
                     </Link>
                     <button
                         className={`navbar-toggler ${isMenuOpen ? 'open' : ''}`}
