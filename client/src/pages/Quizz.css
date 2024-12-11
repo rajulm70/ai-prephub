@@ -114,23 +114,5 @@ General Styles body {
 }
 
 
-.back-button {
-  background: none;
-  border: none;
-  font-size: 16px;
-  color: #007bff;
-  cursor: pointer;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.back-button:hover {
-  text-decoration: underline;
-}
-
-.back-button svg {
-  margin-right: 8px;
-}
 
   
