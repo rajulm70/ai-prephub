@@ -50,7 +50,7 @@ const Login = () => {
     };
 
     return (
-        <Layout title={'Login - AI-Mocker'}>
+        <Layout title={'Login - AI-PrepHub'}>
             <div className="login-photo">
                 <div className="form-container">
                     <div className="image-holder"></div>
