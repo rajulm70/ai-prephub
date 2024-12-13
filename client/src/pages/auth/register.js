@@ -42,7 +42,7 @@ const Register = () => {
     };
 
     return (
-        <Layout title={'Register - AI-Mocker'}>
+        <Layout title={'Register - AI-PrepHub'}>
             <div className="register-photo">
                 <div className="form-container">
                     <div className="image-holder"></div>
