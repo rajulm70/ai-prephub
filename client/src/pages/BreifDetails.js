@@ -30,7 +30,7 @@ const BriefDetails = () => {
                 <div className="container">
                     <h2 className="section-title text-center">Explore Our Features</h2>
                     <p className="section-subtitle text-center">
-                        Dive into AI-Mocker's smart solutions designed to elevate your learning and preparation experience.
+                        Dive into AI-PrepHub's smart solutions designed to elevate your learning and preparation experience.
                     </p>
                     <div className="row">
                         {categories.map((category, index) => (
