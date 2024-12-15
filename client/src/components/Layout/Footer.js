@@ -75,7 +75,7 @@ const Footer = () => {
             </div>
 
             <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', color: 'white' }}>
-                © 2020 Copyright : ai-prephub.vercel.app
+                © 2024 Copyright : ai-prephub.vercel.app
             </div>
             
         </footer>
