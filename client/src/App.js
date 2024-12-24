@@ -27,6 +27,8 @@ import Score from './pages/EssayScore';
 import Response from './pages/EssayResponse';
 import Category from './pages/Category';
 import UnderProgress from './pages/UnderProgress';
+import InterviewQuestions from './pages/InterviewQuestions';
+import InterviewResults from './pages/InterviewResults';
 
 
 function App() {
@@ -49,6 +51,8 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
         <Route path="/interview" element={<MockIntDashboard />} />
+        <Route path="/interview-questions" element={<InterviewQuestions />} />
+        <Route path="/interview-results" element={<InterviewResults />} />
         <Route path="/under-progress" element={<UnderProgress />} />
         <Route path="/essay" element={<MockEssayDashboard />} />
         <Route path="/quiz" element={<Quizz />} />
