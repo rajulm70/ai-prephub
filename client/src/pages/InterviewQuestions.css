@@ -87,7 +87,7 @@
   .camera-container-int video {
     width: 70%; /* Full width of the container */
     max-width: 350px; /* Limit maximum width */
-    height: auto; /* Maintain aspect ratio */
+    height: 200px; /* Maintain aspect ratio */
   }
 }
 
