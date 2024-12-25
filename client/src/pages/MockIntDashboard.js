@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout/Layout';
+import './MockIntDashboard.css';
 
 export default function MockIntDashboard() {
   const navigate = useNavigate();
@@ -11,6 +11,7 @@ export default function MockIntDashboard() {
     jobDescription: '',
     resume: null,
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -28,6 +29,8 @@ export default function MockIntDashboard() {
       alert('Please upload your resume.');
       return;
     }
+
+    setIsSubmitting(true); // Set the submitting state to true
 
     const uploadData = new FormData();
     uploadData.append('resume', formData.resume);
@@ -54,76 +57,83 @@ export default function MockIntDashboard() {
       navigate('/interview-questions');
     } catch (error) {
       alert(`Error: ${error.message}`);
+    } finally {
+      setIsSubmitting(false); // Reset the submitting state
     }
   };
 
   return (
-    <Layout title={'Interview Dashboard'}>
-      <div className="container w-75 my-3">
-        <h1>Prepare for Your Mock Interview</h1>
-        <p>Provide details about your desired job role and upload your resume to get started.</p>
+    <Layout title={'Mock Interview Dashboard'}>
+      <div className="mock-dashboard-container">
+        <h1 className="mock-dashboard-title">
+          Prepare for Your <span className="highlight-int">Interview</span>
+        </h1>
+        <p className="mock-dashboard-subtitle">
+          Provide details about your desired job role and upload your resume to get started.
+        </p>
 
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="jobRole" className="form-label">Job Role/Job Position</label>
-            <input
-              type="text"
-              className="form-control"
-              id="jobRole"
-              placeholder="Ex. Full Stack Developer"
-              value={formData.jobRole}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
+        <form onSubmit={handleSubmit} className="mock-dashboard-form">
+          <label htmlFor="jobRole" className="mock-input-label">
+            Job Role/Job Position:
+          </label>
+          <input
+            type="text"
+            id="jobRole"
+            value={formData.jobRole}
+            onChange={handleInputChange}
+            className="mock-input-field"
+            placeholder="Ex. Full Stack Developer"
+            required
+          />
+          <br />
 
-          <div className="mb-3">
-            <label htmlFor="yearsOfExperience" className="form-label">Years of Experience</label>
-            <input
-              type="number"
-              className="form-control"
-              id="yearsOfExperience"
-              placeholder="Ex. 5"
-              value={formData.yearsOfExperience}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
+          <label htmlFor="yearsOfExperience" className="mock-input-label">
+            Years of Experience:
+          </label>
+          <input
+            type="number"
+            id="yearsOfExperience"
+            value={formData.yearsOfExperience}
+            onChange={handleInputChange}
+            className="mock-input-field"
+            placeholder="Ex. 5"
+            required
+          />
+          <br />
 
-          <div className="mb-3">
-            <label htmlFor="jobDescription" className="form-label">Job Description/Tech Stack</label>
-            <textarea
-              className="form-control"
-              id="jobDescription"
-              rows="5"
-              placeholder="Describe the key responsibilities or tech stack related to the job."
-              value={formData.jobDescription}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
+          <label htmlFor="jobDescription" className="mock-input-label">
+            Job Description/Tech Stack:
+          </label>
+          <textarea
+            id="jobDescription"
+            value={formData.jobDescription}
+            onChange={handleInputChange}
+            className="mock-input-field mock-textarea"
+            placeholder="Describe the key responsibilities or tech stack related to the job."
+            required
+          />
+          <br />
 
-          <div className="mb-3">
-            <label htmlFor="resume" className="form-label">Upload Your Resume</label>
-            <input
-              type="file"
-              className="form-control"
-              id="resume"
-              accept="application/pdf"
-              onChange={handleFileChange}
-              required
-            />
-          </div>
+          <label htmlFor="resume" className="mock-input-label">
+            Upload Your Resume:
+          </label>
+          <input
+            type="file"
+            id="resume"
+            accept="application/pdf"
+            onChange={handleFileChange}
+            className="mock-input-field"
+            required
+          />
+          <br />
 
-          <div className="text-center">
-            <button
-              type="submit"
-              className="btn btn-primary btn-lg my-4"
-              style={{"backgroundColor":"#f4476b"}}
-            >
-              Submit
-            </button>
-          </div>
+          <button
+            type="submit"
+            className={`mock-submit-button ${isSubmitting ? 'mock-submit-button-wait' : ''}`}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Please Wait...' : 'Submit'}
+          </button>
         </form>
       </div>
     </Layout>
