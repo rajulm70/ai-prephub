@@ -84,7 +84,6 @@ body {
   
   .mock-submit-button-wait {
     background-color: #e6aeae; /* Lighter color for 'Please Wait' state */
-    color: black;
     cursor: not-allowed;
   }
   
